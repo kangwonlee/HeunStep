@@ -42,3 +42,17 @@ def dx_dt(t:float, x:State) -> State:
   a0 = 1
   a1 = 1
   return (-a1 / a0 * x)
+
+
+def main():
+  t0_sec = 0.0
+  t1_sec = 1.0
+
+  x0 = 4
+
+  x1_heun = heun_step(dx_dt, x0, t0_sec, t1_sec)
+  print(f"x of Next step by Heun's method = {x1_heun}")
+
+
+if "__main__" == __name__:
+  main()
