@@ -1,10 +1,14 @@
 from typing import Callable, Union, List, Tuple
 
+import numpy as np
+
 
 # x would be in following form
-State = Union[float, Union[List[float], Tuple[float]]]
+State = Union[float, np.ndarray]
+SlopeFunction = Callable[[float, State], State]
 
-def heun_step(f:Callable[float, State], x0:State, t0:float, t1:float) -> State:
+
+def heun_step(f:SlopeFunction, x0:State, t0:float, t1:float) -> State:
     """
     One time step of Heun's method
     f  : function dx_dt(t0, x0)
