@@ -50,6 +50,11 @@ def heun_step(f:SlopeFunction, x0:State, t0:float, t1:float) -> State:
 
 
 def dx_dt(t:float, x:State) -> State:
+  """
+  a0 x_dot + a1 x = 0
+  a0 x_dot = -a1 x
+  x_dot = - (a1 * x) / a0
+  """
   a0 = 1
   a1 = 0.5
   return (-a1 / a0 * x)
