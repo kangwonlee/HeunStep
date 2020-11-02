@@ -5,9 +5,12 @@ import numpy as np
 
 # x would be in following form
 State = Union[float, np.ndarray]
+# Slope function would be in the following form
+# Would take two arguments and return one argument
 SlopeFunction = Callable[[float, State], State]
 
 
+# Following function would calculate x of the next step
 def heun_step(f:SlopeFunction, x0:State, t0:float, t1:float) -> State:
     """
     One time step of Heun's method
